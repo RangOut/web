@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='rangoutApp'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='initial-scale=1, maximum-scale=1, user-scalable=no'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='description' content='Rangout'>
+    <base href='/'>
+
+    <title>Rangout</title>
+
+    <link rel='icon' type='image/png' href='/assets/img/logo.png'>
+
+    <link rel='stylesheet' href='/libraries/angular-material/angular-material.min.css'>
+    <link rel='stylesheet' href='/libraries/angular-loading-bar/build/loading-bar.min.css'>
+    <link rel='stylesheet' href='/libraries/angular-block-ui/dist/angular-block-ui.min.css'>
+    <link rel='stylesheet' href='/rangout/css/app.css'>
+
+    <script src='/libraries/angular/angular.js'></script>
+    <script src='/libraries/angular-animate/angular-animate.js'></script>
+    <script src='/libraries/angular-aria/angular-aria.js'></script>
+    <script src='/libraries/angular-messages/angular-messages.js'></script>
+    <script src='/libraries/angular-material/angular-material.js'></script>
+    <script src='/libraries/angular-resource/angular-resource.js'></script>
+    <script src='/libraries/angular-sanitize/angular-sanitize.js'></script>
+    <script src='/libraries/angular-cookies/angular-cookies.js'></script>
+    <script src='/libraries/ngstorage/ngStorage.js'></script>
+    <script src='/libraries/angular-ui-router/release/angular-ui-router.js'></script>
+    <script src='/libraries/angular-loading-bar/build/loading-bar.js'></script>
+    <script src='/libraries/angular-block-ui/dist/angular-block-ui.js'></script>
+
+    <script src='/rangout/js/app.js'></script>
+    <script src='/rangout/js/controllers/LoginController.js'></script>
+</head>
+<body>
+    <div ui-view id='main-view' layout-fill></div>
+</body>
+</html>
