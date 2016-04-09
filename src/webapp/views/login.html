@@ -42,28 +42,14 @@
                                 Senha
                             </label>
                             <input required id='password' name='password' type='password'
-                                   ng-model='loginCtrl.user.password'>
+                                   ng-model='loginCtrl.password'>
                             <div ng-messages='loginForm.password.$error'>
                                 <div ng-message='required'>Informe sua senha.</div>
                             </div>
                         </md-input-container>
 
-                        <div layout='row' layout-align='space-between end'>
-                            <md-input-container>
-                                <md-checkbox role='checkbox' aria-label='Gerente' ng-model='loginCtrl.isManager'>
-                                    Gerente
-                                </md-checkbox>
-                            </md-input-container>
-
-                            <md-input-container>
-                                <md-button class='md-primary' ui-sref='forgot' aria-label='Esqueceu sua senha?'>
-                                    Esqueceu sua senha?
-                                </md-button>
-                            </md-input-container>
-                        </div>
-
                         <div layout='row'>
-                            <md-button layout-fill class='md-raised md-primary' ng-click=''
+                            <md-button layout-fill class='md-raised md-primary' ng-click='loginCtrl.login()'
                                        ng-disabled='loginForm.$invalid' aria-label='Entrar'>
                                 Entrar
                             </md-button>

@@ -25,7 +25,7 @@
         }, 0);
     });
 
-    app.all('*', function(req, res) {
+    app.all('/*', function (req, res) {
         res.redirect('/');
     });
 

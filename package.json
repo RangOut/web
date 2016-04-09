@@ -25,6 +25,7 @@
     "angular-ui-router": "^0.2.18",
     "express": "^4.13.4",
     "http-proxy": "^1.13.2",
+    "js-sha256": "^0.3.0",
     "ngstorage": "^0.3.10"
   }
 }
