@@ -20,7 +20,7 @@
                                 Estabelecimento
                             </label>
                             <input required id='establishment' name='establishment' type='text'
-                                   ng-model='loginCtrl.user.establishment'>
+                                   ng-model='loginCtrl.employee.establishment'>
                             <div ng-messages='loginForm.establishment.$error'>
                                 <div ng-message='required'>Informe seu estabelecimento.</div>
                             </div>
@@ -28,12 +28,12 @@
 
                         <md-input-container class='md-block'>
                             <label for='username'>
-                                Usuário
+                                Nome de usuário
                             </label>
                             <input required id='username' name='username' type='text'
-                                   ng-model='loginCtrl.user.username'>
+                                   ng-model='loginCtrl.employee.username'>
                             <div ng-messages='loginForm.username.$error'>
-                                <div ng-message='required'>Informe seu usuário.</div>
+                                <div ng-message='required'>Informe seu nome de usuário.</div>
                             </div>
                         </md-input-container>
 

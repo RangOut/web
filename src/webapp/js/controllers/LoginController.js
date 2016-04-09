@@ -6,22 +6,22 @@
     rangoutLogin.controller('LoginController', function ($state, AuthenticationService, ToastService) {
         var vm = this;
 
-        vm.user = {};
-        vm.user.establishment;
-        vm.user.username;
-        vm.user.password;
+        vm.employee = {};
+        vm.employee.establishment;
+        vm.employee.username;
+        vm.employee.password;
         vm.password;
 
         vm.login = function () {
-            vm.user.password = sha256(vm.password);
+            vm.employee.password = sha256(vm.password);
 
-            AuthenticationService.login(vm.user).then(
+            AuthenticationService.login(vm.employee).then(
                 function () {
-                    AuthenticationService.setCredentials(vm.user);
-                    ToastService.customToast("Logged in!");
+                    AuthenticationService.setCredentials(vm.employee);
+                    ToastService.customToast("Bem-vindo ao Rangout!");
                     $state.go('rangout.dashboard');
                 }, function () {
-                    ToastService.customToast("Something went wrong.");
+                    ToastService.customToast("Ocorreu um erro. Tente novamente.");
                 }
             );
         };

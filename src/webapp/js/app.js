@@ -3,7 +3,7 @@
 
     var app = angular.module('rangoutApp', [
         'ui.router', 'angular-loading-bar', 'blockUI', 'ngMaterial', 'ngAnimate', 'ngResource', 'ngSanitize', 'ngCookies',
-        'ngStorage', 'ngMessages', 'ngAria', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin'
+        'ngStorage', 'ngMessages', 'ngAria', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin', 'rangoutRegister'
     ]);
 
     app.config(function ($mdThemingProvider) {
@@ -16,7 +16,7 @@
             .state('/', {
                 url: '/',
                 controller: function ($cookies, $state) {
-                    if (typeof $cookies.get('currentUser') === 'undefined') {
+                    if (typeof $cookies.get('currentEmployee') === 'undefined') {
                         $state.go('login');
                     } else {
                         $state.go('rangout.dashboard');
@@ -36,6 +36,8 @@
             })
             .state('register', {
                 url: '/register',
+                templateUrl: '/rangout/views/register.html',
+                controller: 'RegisterController as registerCtrl',
                 data: {
                     requireLogin: false
                 }
@@ -60,7 +62,7 @@
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
             var requireLogin = toState.data.requireLogin;
 
-            if (requireLogin && typeof $cookies.get('currentUser') === 'undefined') {
+            if (requireLogin && typeof $cookies.get('currentEmployee') === 'undefined') {
                 event.preventDefault();
                 $state.go('login');
             }
