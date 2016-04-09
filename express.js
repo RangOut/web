@@ -7,10 +7,6 @@
     var app = express();
     var api = httpProxy.createProxyServer();
 
-    app.use(function (req, res, next) {
-        setTimeout(next, 0);
-    });
-
     app.use('/rangout', express.static('src/webapp/', {index: false}));
     app.use('/libraries', express.static('node_modules', {index: false}));
     app.use('/assets', express.static('assets/', {index: false}));
@@ -20,9 +16,10 @@
     });
 
     app.all('/rangout-server/api/*', function (req, res) {
-        setTimeout(function () {
-            api.web(req, res, {target: 'http://localhost:8080'});
-        }, 0);
+        api.web(req, res, {target: 'http://localhost:8080'}, function (error) {
+            res.status(500);
+            res.end();
+        });
     });
 
     app.all('/*', function (req, res) {
@@ -33,7 +30,7 @@
         res.end();
     });
 
-    var server = app.listen(8081, function () {
+    app.listen(8081, function () {
         console.log('Initializing web interface at http://localhost:8081\nREST server should be listening at http://localhost:8080');
     });
 })();

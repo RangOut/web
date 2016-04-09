@@ -10,6 +10,7 @@
         vm.user.establishment;
         vm.user.username;
         vm.user.password;
+        vm.password;
 
         vm.login = function () {
             vm.user.password = sha256(vm.password);
