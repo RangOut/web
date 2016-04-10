@@ -10,6 +10,7 @@
         vm.employee.establishment;
         vm.employee.username;
         vm.employee.password;
+
         vm.password;
 
         vm.login = function () {

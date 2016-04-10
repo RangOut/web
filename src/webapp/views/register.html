@@ -1,0 +1,100 @@
+<div layout='column' layout-padding layout-fill layout-align='center center'>
+    <div layout='row' layout-padding layout-fill layout-align='center center'>
+        <div flex='40' flex-lg='60' flex-md='60' flex-sm='70' flex-xs='100'>
+            <md-card>
+                <md-toolbar layout-padding>
+                    <div layout='row' layout-align='center center'>
+                        <h1 class='md-headline'>
+                            Registro
+                        </h1>
+                    </div>
+                </md-toolbar>
+
+                <md-content layout-padding>
+                    <form name='registerForm'>
+                        <md-tabs md-stretch-tabs="always" md-dynamic-height md-border-bottom>
+                            <md-tab label='Gerente'>
+                                <md-content class='md-padding'>
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label for='manager-name'>
+                                                Nome
+                                            </label>
+                                            <input required id='manager-name' name='managerName' type='text'
+                                                   ng-model="registerCtrl.establishment.manager.name">
+                                            <div ng-messages='registerForm.managerName.$error'>
+                                                <div ng-message='required'>Informe seu nome.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label for='manager-username'>
+                                                Nome de usuário
+                                            </label>
+                                            <input required id='manager-username' name='managerUsername' type='text'
+                                                   ng-model="registerCtrl.establishment.manager.username">
+                                            <div ng-messages='registerForm.managerUsername.$error'>
+                                                <div ng-message='required'>Informe seu nome de usuário.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label for='manager-email'>
+                                                Email
+                                            </label>
+                                            <input required id='manager-email' name='managerEmail' type='email'
+                                                   ng-model="registerCtrl.establishment.manager.email">
+                                            <div ng-messages='registerForm.managerEmail.$error'>
+                                                <div ng-message='required'>Informe seu email.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='manager-password'>
+                                                Senha (Rangout)
+                                            </label>
+                                            <input required id='manager-password' name='managerPassword' type='password'
+                                                   ng-model='registerCtrl.password'>
+                                            <div ng-messages='registerForm.managerPassword.$error'>
+                                                <div ng-message='required'>Informe a senha da conta Rangout.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+
+                            <md-tab label='Estabelecimento'>
+                                <md-content class='md-padding'>
+                                    Estabelecimento
+                                </md-content>
+                            </md-tab>
+
+                            <md-tab label='Cardápio'>
+                                <md-content class='md-padding'>
+                                    Cardápio
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+
+                        <div layout='row'>
+                            <md-button layout-fill class='md-raised md-primary' ng-click=''
+                                       ng-disabled='registerForm.$invalid' aria-label='Confirmar'>
+                                Confirmar
+                            </md-button>
+                        </div>
+
+                        <br>
+
+                        <div layout='row'>
+                            <md-button layout-fill class='md-primary' ui-sref='login' aria-label='Voltar'>
+                                Voltar
+                            </md-button>
+                        </div>
+                    </form>
+                </md-content>
+            </md-card>
+        </div>
+    </div>
+</div>
