@@ -12,7 +12,7 @@
 
                 <md-content layout-padding>
                     <form name='registerForm'>
-                        <md-tabs md-stretch-tabs="always" md-dynamic-height md-border-bottom>
+                        <md-tabs md-stretch-tabs='always' md-dynamic-height md-border-bottom>
                             <md-tab label='Gerente'>
                                 <md-content class='md-padding'>
                                     <div layout-gt-sm='row'>
@@ -67,7 +67,75 @@
 
                             <md-tab label='Estabelecimento'>
                                 <md-content class='md-padding'>
-                                    Estabelecimento
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label for='establishment-name'>
+                                                Nome
+                                            </label>
+                                            <input required id='establishment-name' name='establishmentName' type='text'
+                                                   ng-model="registerCtrl.establishment.name">
+                                            <div ng-messages='registerForm.establishmentName.$error'>
+                                                <div ng-message='required'>Informe o nome do estabelecimento.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label for='establishment-nickname'>
+                                                Nome de estabelecimento (login)
+                                            </label>
+                                            <input required id='establishment-nickname' name='establishmentNickname'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.nickname">
+                                            <div ng-messages='registerForm.establishmentNickname.$error'>
+                                                <div ng-message='required'>Informe o nome de estabelecimento (login).
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-street'>
+                                                Rua
+                                            </label>
+                                            <input required id='address-street' name='addressStreet'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.street">
+                                            <div ng-messages='registerForm.addressStreet.$error'>
+                                                <div ng-message='required'>Informe o nome da rua do estabelecimento.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-number'>
+                                                Número
+                                            </label>
+                                            <input required id='address-number' name='addressNumber'
+                                                   type='number' min='0'
+                                                   ng-model="registerCtrl.establishment.address.number">
+                                            <div ng-messages='registerForm.addressNumber.$error'>
+                                                <div ng-message='required'>Informe o número da rua do estabelecimento.
+                                                </div>
+                                                <div ng-message='min'>O número da rua deve ser positivo.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='establishment-telephones'>
+                                                Telefones (separados por vírgula)
+                                            </label>
+                                            <input required id='establishment-telephones' name='establishmentTelephones'
+                                                   type='text' ng-list ng-model="registerCtrl.establishment.telephones">
+                                            <div ng-messages='registerForm.establishmentTelephones.$error'>
+                                                <div ng-message='required'>Informe pelo menos um telefone.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
                                 </md-content>
                             </md-tab>
 
