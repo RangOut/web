@@ -125,6 +125,88 @@
 
                                     <div layout-gt-sm='row'>
                                         <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-neighborhood'>
+                                                Bairro
+                                            </label>
+                                            <input required id='address-neighborhood' name='addressNeighborhood'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.neighborhood">
+                                            <div ng-messages='registerForm.addressNeighborhood.$error'>
+                                                <div ng-message='required'>Informe o nome do bairro do estabelecimento.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-cep'>
+                                                CEP
+                                            </label>
+                                            <input id='address-cep' name='addressCep'
+                                                   type='text' ng-pattern="/^[0-9]{8}$/" md-maxlength='8'
+                                                   ng-model="registerCtrl.establishment.address.cep">
+                                            <div ng-messages='registerForm.addressCep.$error'>
+                                                <div ng-message='pattern'>O cep informado não é válido.
+                                                </div>
+                                                <div ng-message='md-maxlength'>O cep só deve ter até 8 números.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-complement'>
+                                                Complemento
+                                            </label>
+                                            <input id='address-complement' name='addressComplement'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.complement">
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-city'>
+                                                Cidade
+                                            </label>
+                                            <input required id='address-city' name='addressCity'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.city">
+                                            <div ng-messages='registerForm.addressCity.$error'>
+                                                <div ng-message='required'>Informe o nome da cidade do estabelecimento.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-state'>
+                                                Estado
+                                            </label>
+                                            <input required id='address-state' name='addressState'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.state">
+                                            <div ng-messages='registerForm.addressState.$error'>
+                                                <div ng-message='required'>Informe o nome do estado do estabelecimento.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='address-country'>
+                                                País
+                                            </label>
+                                            <input required id='address-country' name='addressCountry'
+                                                   type='text'
+                                                   ng-model="registerCtrl.establishment.address.country">
+                                            <div ng-messages='registerForm.addressCountry.$error'>
+                                                <div ng-message='required'>Informe o nome do país do estabelecimento.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm='row'>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='establishment-telephones'>
                                                 Telefones (separados por vírgula)
                                             </label>
@@ -140,14 +222,92 @@
                             </md-tab>
 
                             <md-tab label='Cardápio'>
-                                <md-content class='md-padding'>
-                                    Cardápio
+                                <md-content layout='column' class='md-padding'>
+                                    <md-card ng-repeat='item in registerCtrl.establishment.menu track by $index'>
+                                        <md-card-content>
+                                            <div layout-gt-sm='row'>
+                                                <md-input-container flex='70' class='md-block' flex-gt-sm>
+                                                    <label for='item-name'>
+                                                        Nome do item
+                                                    </label>
+                                                    <input required id='item-name' name='itemName'
+                                                           type='text' ng-model="item.name">
+                                                    <div ng-messages='registerForm.itemName.$error'>
+                                                        <div ng-message='required'>Informe o nome do item.
+                                                        </div>
+                                                    </div>
+                                                </md-input-container>
+
+                                                <md-input-container flex='30' class='md-block' flex-gt-sm>
+                                                    <label for='item-price'>
+                                                        Preço
+                                                    </label>
+                                                    <input required id='item-price' name='itemPrice'
+                                                           type='number' ng-model="item.price" min='0'>
+                                                    <div ng-messages='registerForm.itemPrice.$error'>
+                                                        <div ng-message='required'>Informe o preço do item.
+                                                        </div>
+                                                        <div ng-message='min'>O preço do item não pode ser negativo.
+                                                        </div>
+                                                    </div>
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm='row'>
+                                                <md-input-container flex='70' class='md-block' flex-gt-sm>
+                                                    <label for='item-description'>
+                                                        Descrição
+                                                    </label>
+                                                    <input id='item-description' name='itemDescription'
+                                                           type='text' ng-model="item.description">
+                                                </md-input-container>
+
+                                                <md-input-container flex='30' class='md-block' flex-gt-sm>
+                                                    <label for='item-categoria'>
+                                                        Categoria
+                                                    </label>
+                                                    <input required id='item-categoria' name='itemCategory'
+                                                           type='text' ng-model="item.category">
+                                                    <div ng-messages='registerForm.itemCategory.$error'>
+                                                        <div ng-message='required'>Informe a categoria do item.
+                                                        </div>
+                                                    </div>
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm='row'>
+                                                <md-input-container class='md-block' flex-gt-sm>
+                                                    <label for='item-ingredients'>
+                                                        Ingredientes (separados por vírgula)
+                                                    </label>
+                                                    <input id='item-ingredients' name='itemIngredients'
+                                                           type='text' ng-list ng-model="item.ingredients">
+                                                </md-input-container>
+                                            </div>
+                                        </md-card-content>
+
+                                        <md-card-actions layout='row' layout-align='end center'>
+                                            <md-button class='md-raised md-warn'
+                                                       ng-click='registerCtrl.removeItemMenu($index)'>
+                                                Remover
+                                            </md-button>
+                                        </md-card-actions>
+                                    </md-card>
                                 </md-content>
+
+                                <div layout='row'>
+                                    <md-button layout-fill class='md-raised md-primary'
+                                               ng-click='registerCtrl.addItemMenu()'>
+                                        Adicionar Item
+                                    </md-button>
+                                </div>
+
+                                <br>
                             </md-tab>
                         </md-tabs>
 
                         <div layout='row'>
-                            <md-button layout-fill class='md-raised md-primary' ng-click=''
+                            <md-button layout-fill class='md-raised md-primary' ng-click='registerCtrl.register()'
                                        ng-disabled='registerForm.$invalid' aria-label='Confirmar'>
                                 Confirmar
                             </md-button>

@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var rangoutRegister = angular.module('rangoutRegister', []);
+    var rangoutRegister = angular.module('rangoutRegister');
 
-    rangoutRegister.controller('RegisterController', function () {
+    rangoutRegister.controller('RegisterController', function (RegisterService, ToastService) {
         var vm = this;
 
         vm.establishment = {};
@@ -27,5 +27,36 @@
         vm.establishment.menu = [];
 
         vm.password;
+
+        vm.addItemMenu = function () {
+            vm.establishment.menu.push({
+                name: undefined,
+                price: undefined,
+                category: undefined,
+                ingredients: [],
+                description: undefined
+            });
+        };
+
+        vm.removeItemMenu = function (index) {
+            vm.establishment.menu.splice(index, 1);
+        };
+
+        vm.register = function () {
+            vm.establishment.manager.password = sha256(vm.password);
+
+            RegisterService.register(vm.establishment).then(
+                function () {
+                    ToastService.customToast("Registro concluído com sucesso!");
+                    $state.go('rangout.login');
+                }, function () {
+                    ToastService.customToast("Ocorreu um erro. Tente novamente.");
+                }
+            );
+        };
+
+        (function main() {
+            vm.addItemMenu();
+        })();
     });
 })();
