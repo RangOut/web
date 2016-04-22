@@ -3,7 +3,7 @@
 
     var rangoutRegister = angular.module('rangoutRegister');
 
-    rangoutRegister.controller('RegisterController', function (RegisterService, ToastService) {
+    rangoutRegister.controller('RegisterController', function (RegisterService, ToastService, $state) {
         var vm = this;
 
         vm.establishment = {};
