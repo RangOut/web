@@ -49,7 +49,9 @@
                 }
             })
             .state('rangout.dashboard', {
-                url: '/dashboard'
+                url: '/dashboard',
+                templateUrl: '/rangout/views/dashboard.html',
+                controller: 'DashboardController as dashboardCtrl'
             });
 
         $urlRouterProvider.when('', '/');

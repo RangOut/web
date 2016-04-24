@@ -3,7 +3,7 @@
 
     var rangoutRegister = angular.module('rangoutRegister');
 
-    rangoutRegister.controller('RegisterController', function (RegisterService, ToastService, $state) {
+    rangoutRegister.controller('RegisterController', function ($state, RegisterService, ToastService) {
         var vm = this;
 
         vm.establishment = {};
@@ -48,7 +48,7 @@
             RegisterService.register(vm.establishment).then(
                 function () {
                     ToastService.customToast("Registro concluído com sucesso!");
-                    $state.go('rangout.login');
+                    $state.go('login');
                 }, function () {
                     ToastService.customToast("Ocorreu um erro. Tente novamente.");
                 }

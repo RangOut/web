@@ -2,10 +2,9 @@
     'use strict';
 
     var express = require('express');
-    var httpProxy = require('http-proxy');
+    var request = require('request');
 
     var app = express();
-    var api = httpProxy.createProxyServer();
 
     app.use('/rangout', express.static('src/webapp/', {index: false}));
     app.use('/libraries', express.static('node_modules', {index: false}));
@@ -16,18 +15,12 @@
     });
 
     app.all('/rangout-server/api/*', function (req, res) {
-        api.web(req, res, {target: 'http://localhost:8080'}, function (error) {
-            res.status(500);
-            res.end();
-        });
+        var url = 'http://localhost:8080' + req.url.split("/rangout-server")[1];
+        req.pipe(request(url)).pipe(res);
     });
 
     app.all('/*', function (req, res) {
         res.redirect('/');
-    });
-
-    api.on('error', function (err, req, res) {
-        res.end();
     });
 
     app.listen(8081, function () {
