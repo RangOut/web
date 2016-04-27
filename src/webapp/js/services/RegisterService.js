@@ -11,10 +11,8 @@
 
             $http.post('/rangout-server/api/register', {establishment: establishment}).then(
                 function () {
-                    console.log('Register request ok.');
                     deferred.resolve(establishment);
                 }, function () {
-                    console.log('Register request fail.');
                     deferred.reject(establishment);
                 }
             );

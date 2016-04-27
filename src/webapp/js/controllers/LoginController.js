@@ -17,8 +17,8 @@
             vm.employee.password = sha256(vm.password);
 
             AuthenticationService.login(vm.employee).then(
-                function () {
-                    AuthenticationService.setCredentials(vm.employee);
+                function (info) {
+                    AuthenticationService.setCredentials(info.data);
                     ToastService.customToast("Bem-vindo ao Rangout!");
                     $state.go('rangout.dashboard');
                 }, function () {

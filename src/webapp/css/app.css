@@ -2,6 +2,30 @@
     width: 15%;
 }
 
+#button-home {
+    text-align: left;
+    border-radius: 0;
+}
+
+#button-orders {
+    text-align: left;
+    border-radius: 0;
+}
+
+#button-menu {
+    text-align: left;
+    border-radius: 0;
+}
+
+#button-employees {
+    text-align: left;
+    border-radius: 0;
+}
+
 .full-height {
     height: 100%;
+}
+
+.full-width {
+    width: 100%;
 }

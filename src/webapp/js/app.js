@@ -3,7 +3,8 @@
 
     var app = angular.module('rangoutApp', [
         'ui.router', 'angular-loading-bar', 'blockUI', 'ngMaterial', 'ngAnimate', 'ngResource', 'ngSanitize', 'ngCookies',
-        'ngStorage', 'ngMessages', 'ngAria', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin', 'rangoutRegister'
+        'ngStorage', 'ngMessages', 'ngAria', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin', 'rangoutRegister',
+        'rangoutDashboard'
     ]);
 
     app.config(function ($mdThemingProvider) {
@@ -44,6 +45,7 @@
             })
             .state('rangout', {
                 abstract: true,
+                template: '<div class="full-height full-width" ui-view></div>',
                 data: {
                     requireLogin: true
                 }
@@ -52,6 +54,21 @@
                 url: '/dashboard',
                 templateUrl: '/rangout/views/dashboard.html',
                 controller: 'DashboardController as dashboardCtrl'
+            })
+            .state('rangout.dashboard.orders', {
+                url: '/orders',
+                templateUrl: '/rangout/views/dashboard.orders.html',
+                controller: 'DashboardOrdersController as dashboardOrdersCtrl'
+            })
+            .state('rangout.dashboard.menu', {
+                url: '/menu',
+                templateUrl: '/rangout/views/dashboard.menu.html',
+                controller: 'DashboardMenuController as dashboardMenuCtrl'
+            })
+            .state('rangout.dashboard.employees', {
+                url: '/employees',
+                templateUrl: '/rangout/views/dashboard.employees.html',
+                controller: 'DashboardEmployeesController as dashboardEmployeesCtrl'
             });
 
         $urlRouterProvider.when('', '/');

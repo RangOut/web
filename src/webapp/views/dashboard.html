@@ -1,5 +1,33 @@
 <div layout='row' class='full-height'>
-    <md-sidenav md-component-id='left' md-is-locked-open='$mdMedia("gt-md")' md-disable-backdrop md-whiteframe='4'>
+    <md-sidenav md-component-id='left' md-is-locked-open='true' md-disable-backdrop md-whiteframe='4'
+                md-colors='::{backgroundColor: "default-primary"}'>
+        <md-toolbar>
+            <h1 class='md-display-1' layout='row' layout-align='center center'>Menu</h1>
+        </md-toolbar>
 
+        <md-content>
+            <md-button id='button-home' ng-click='dashboardCtrl.changeState("rangout.dashboard")'
+                       class='md-primary md-raised' layout-fill layout-padding>
+                Início
+            </md-button>
+
+            <md-button id='button-orders' ng-click='dashboardCtrl.changeState("rangout.dashboard.orders")'
+                       class='md-primary md-raised' layout-fill layout-padding>
+                Pedidos
+            </md-button>
+
+            <md-button id='button-menu' ng-click='dashboardCtrl.changeState("rangout.dashboard.menu")'
+                       class='md-primary md-raised'
+                       layout-fill layout-padding>
+                Cardápio
+            </md-button>
+
+            <md-button id='button-employees' ng-click='dashboardCtrl.changeState("rangout.dashboard.employees")'
+                       class='md-primary md-raised' layout-fill layout-padding>
+                Funcionários
+            </md-button>
+        </md-content>
     </md-sidenav>
+
+    <ui-view></ui-view>
 </div>
