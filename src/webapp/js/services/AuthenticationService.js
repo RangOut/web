@@ -21,13 +21,13 @@
         };
 
         self.setCredentials = function (employee) {
-            $http.defaults.headers.common['X-Auth-Request'] = employee.token;
+            $http.defaults.headers.common['X-Auth-Token'] = employee.token;
             $cookies.putObject('currentEmployee', employee);
         };
 
         self.clearCredentials = function () {
             $cookies.remove('currentEmployee');
-            $http.defaults.headers.common['X-Auth-Request'] = undefined;
+            $http.defaults.headers.common['X-Auth-Token'] = undefined;
         };
     });
 })();
