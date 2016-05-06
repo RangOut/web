@@ -1,3 +1,24 @@
-<md-content layout='column'>
+<md-content layout='row' layout-wrap layout-padding>
+    <md-card data-ng-repeat='item in dashboardMenuCtrl.menu'>
+        <md-card-content>
+            <p>Nome: {{item.name}}</p>
+            <p>Preço: {{item.price | currency}}</p>
+            <p>Disponível: {{item.available? 'Sim': 'Não'}}</p>
+            <p>Descrição: {{item.description}}</p>
+            <p>Categoria: {{item.category}}</p>
+            <p>Ingredientes: {{item.ingredients.join(', ')}}</p>
+        </md-card-content>
 
+        <md-card-actions layout='row' layout-align='end center'>
+            <md-button class='md-icon-button' aria-label='Editar'
+                       ng-click='dashboardMenuCtrl.openEditItemDialog(item, $event)'>
+                <md-icon md-svg-src='/assets/img/ic_create_black_24px.svg'></md-icon>
+            </md-button>
+
+            <md-button class='md-icon-button' aria-label='Remover'
+                       ng-click='dashboardMenuCtrl.openRemoveItemDialog(item, $event)'>
+                <md-icon md-svg-src='/assets/img/ic_delete_black_24px.svg'></md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card>
 </md-content>

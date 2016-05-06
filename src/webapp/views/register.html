@@ -243,7 +243,7 @@
                                                         Preço
                                                     </label>
                                                     <input required id='item-price' name='itemPrice'
-                                                           type='number' ng-model="item.price" min='0'>
+                                                           type='text' ng-model="item.price" min='0' ui-money-mask>
                                                     <div ng-messages='registerForm.itemPrice.$error'>
                                                         <div ng-message='required'>Informe o preço do item.
                                                         </div>

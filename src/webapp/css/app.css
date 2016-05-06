@@ -22,6 +22,11 @@
     border-radius: 0;
 }
 
+#button-logout {
+    text-align: left;
+    border-radius: 0;
+}
+
 .full-height {
     height: 100%;
 }

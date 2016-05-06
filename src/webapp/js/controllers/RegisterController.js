@@ -47,10 +47,10 @@
 
             RegisterService.register(vm.establishment).then(
                 function () {
-                    ToastService.customToast("Registro concluído com sucesso!");
+                    ToastService.customToast('Registro concluído com sucesso!');
                     $state.go('login');
                 }, function () {
-                    ToastService.customToast("Ocorreu um erro. Tente novamente.");
+                    ToastService.customToast('Ocorreu um erro. Tente novamente.');
                 }
             );
         };

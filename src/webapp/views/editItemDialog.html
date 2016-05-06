@@ -1,0 +1,94 @@
+<md-dialog aria-label='Item'>
+    <md-toolbar>
+        <div class='md-toolbar-tools'>
+            <h2>Editar Item</h2>
+
+            <span flex></span>
+
+            <md-button class='md-icon-button' ng-click='editItemDialogCtrl.cancel()'>
+                <md-icon md-svg-src='/assets/img/ic_close_black_24px.svg' aria-label='Fechar'></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <form name='editItemForm'>
+            <div class='md-dialog-content'>
+                <div layout-gt-sm='row'>
+                    <md-input-container flex='70' class='md-block' flex-gt-sm>
+                        <label for='item-name'>
+                            Nome do item
+                        </label>
+                        <input required id='item-name' name='itemName'
+                               type='text' ng-model="editItemDialogCtrl.item.name">
+                        <div ng-messages='editItemForm.itemName.$error'>
+                            <div ng-message='required'>Informe o nome do item.
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex='30' class='md-block' flex-gt-sm>
+                        <label for='item-price'>
+                            Preço
+                        </label>
+                        <input required id='item-price' name='itemPrice'
+                               type='text' ng-model="editItemDialogCtrl.item.price" min='0' ui-money-mask>
+                        <div ng-messages='editItemForm.itemPrice.$error'>
+                            <div ng-message='required'>Informe o preço do item.
+                            </div>
+                            <div ng-message='min'>O preço do item não pode ser negativo.
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm='row'>
+                    <md-input-container flex='70' class='md-block' flex-gt-sm>
+                        <label for='item-description'>
+                            Descrição
+                        </label>
+                        <input id='item-description' name='itemDescription'
+                               type='text' ng-model="editItemDialogCtrl.item.description">
+                    </md-input-container>
+
+                    <md-input-container flex='30' class='md-block' flex-gt-sm>
+                        <label for='item-categoria'>
+                            Categoria
+                        </label>
+                        <input required id='item-categoria' name='itemCategory'
+                               type='text' ng-model="editItemDialogCtrl.item.category">
+                        <div ng-messages='editItemForm.itemCategory.$error'>
+                            <div ng-message='required'>Informe a categoria do item.
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm='row'>
+                    <md-input-container class='md-block' flex-gt-sm>
+                        <label for='item-ingredients'>
+                            Ingredientes (separados por vírgula)
+                        </label>
+                        <input id='item-ingredients' name='itemIngredients'
+                               type='text' ng-list ng-model="editItemDialogCtrl.item.ingredients">
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm='row'>
+                    <md-checkbox ng-model="editItemDialogCtrl.item.available" aria-label='Item Disponível'>
+                        Disponível
+                    </md-checkbox>
+                </div>
+            </div>
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout='row' layout-align='end center'>
+        <md-button class='md-raised md-primary' data-ng-click='editItemDialogCtrl.confirm()'>
+            Confirmar
+        </md-button>
+        <md-button class='md-raised md-warn' data-ng-click='editItemDialogCtrl.cancel()'>
+            Cancelar
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

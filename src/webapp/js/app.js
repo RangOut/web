@@ -3,8 +3,8 @@
 
     var app = angular.module('rangoutApp', [
         'ui.router', 'angular-loading-bar', 'blockUI', 'ngMaterial', 'ngAnimate', 'ngResource', 'ngSanitize', 'ngCookies',
-        'ngStorage', 'ngMessages', 'ngAria', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin', 'rangoutRegister',
-        'rangoutDashboard'
+        'ngStorage', 'ngMessages', 'ngAria', 'ui.utils.masks', 'rangoutToast', 'rangoutAuthentication', 'rangoutLogin',
+        'rangoutRegister', 'rangoutDashboard', 'rangoutHttpRequestInterceptor', 'rangoutDialog'
     ]);
 
     app.config(function ($mdThemingProvider) {
@@ -12,12 +12,16 @@
             .primaryPalette('cyan');
     });
 
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('HttpRequestInterceptor');
+    });
+
     app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('/', {
                 url: '/',
                 controller: function ($cookies, $state) {
-                    if (typeof $cookies.get('currentEmployee') === 'undefined') {
+                    if (typeof $cookies.getObject('currentEmployee') === 'undefined') {
                         $state.go('login');
                     } else {
                         $state.go('rangout.dashboard');
@@ -81,7 +85,7 @@
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
             var requireLogin = toState.data.requireLogin;
 
-            if (requireLogin && typeof $cookies.get('currentEmployee') === 'undefined') {
+            if (requireLogin && typeof $cookies.getObject('currentEmployee') === 'undefined') {
                 event.preventDefault();
                 $state.go('login');
             }

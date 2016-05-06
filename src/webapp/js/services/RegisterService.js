@@ -10,10 +10,10 @@
             var deferred = $q.defer();
 
             $http.post('/rangout-server/api/register', {establishment: establishment}).then(
-                function () {
-                    deferred.resolve(establishment);
-                }, function () {
-                    deferred.reject(establishment);
+                function (info) {
+                    deferred.resolve(info);
+                }, function (error) {
+                    deferred.reject(error);
                 }
             );
 

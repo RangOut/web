@@ -12,8 +12,8 @@
             $http.post('/rangout-server/api/login', employee).then(
                 function (info) {
                     deferred.resolve(info);
-                }, function () {
-                    deferred.reject(employee);
+                }, function (error) {
+                    deferred.reject(error);
                 }
             );
 

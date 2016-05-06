@@ -19,10 +19,10 @@
             AuthenticationService.login(vm.employee).then(
                 function (info) {
                     AuthenticationService.setCredentials(info.data);
-                    ToastService.customToast("Bem-vindo ao Rangout!");
+                    ToastService.customToast('Bem-vindo ao Rangout!');
                     $state.go('rangout.dashboard');
                 }, function () {
-                    ToastService.customToast("Ocorreu um erro. Tente novamente.");
+                    ToastService.customToast('Ocorreu um erro. Tente novamente.');
                 }
             );
         };

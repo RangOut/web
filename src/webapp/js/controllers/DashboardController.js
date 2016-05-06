@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var rangoutDashboard = angular.module('rangoutDashboard', []);
+    var rangoutDashboard = angular.module('rangoutDashboard');
 
-    rangoutDashboard.controller('DashboardController', function ($state) {
+    rangoutDashboard.controller('DashboardController', function ($state, DashboardService) {
         var vm = this;
 
         /**
@@ -12,6 +12,10 @@
          */
         vm.changeState = function (state) {
             $state.go(state);
+        };
+
+        vm.logout = function () {
+            return DashboardService.logout();
         };
     });
 })();
