@@ -3,7 +3,7 @@
 
     var rangoutDashboard = angular.module('rangoutDashboard');
 
-    rangoutDashboard.controller('DashboardMenuController', function ($q, DashboardService, DialogService) {
+    rangoutDashboard.controller('DashboardMenuController', function ($q, $cookies, DashboardService, DialogService) {
         var vm = this;
         var idEstablishment;
 
@@ -71,10 +71,9 @@
         };
 
         (function main() {
-            /**
-             * Mocked.
-             */
-            idEstablishment = 1;
+            var currentEmployee = $cookies.getObject('currentEmployee');
+            idEstablishment = currentEmployee.establishment.id;
+
             DashboardService.getMenu(idEstablishment).then(function (info) {
                 vm.menu = info.data.menu;
             });
