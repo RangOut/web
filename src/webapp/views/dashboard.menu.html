@@ -1,3 +1,10 @@
+<md-content layout='column' layout-padding>
+    <md-button id='button-add-item' class='md-raised md-primary'
+               data-ng-click='dashboardMenuCtrl.openAddItemDialog($event)'>
+        Adicionar Item
+    </md-button>
+</md-content>
+
 <md-content layout='row' layout-wrap layout-padding>
     <md-card data-ng-repeat='item in dashboardMenuCtrl.menu'>
         <md-card-content>

@@ -9,6 +9,7 @@
         vm.establishment = {};
         vm.establishment.name;
         vm.establishment.nickname;
+        vm.establishment.numTables;
         vm.establishment.telephones = [];
         vm.establishment.address = {};
         vm.establishment.address.cep;

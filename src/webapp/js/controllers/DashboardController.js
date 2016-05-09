@@ -3,7 +3,7 @@
 
     var rangoutDashboard = angular.module('rangoutDashboard');
 
-    rangoutDashboard.controller('DashboardController', function ($state, DashboardService) {
+    rangoutDashboard.controller('DashboardController', function ($state, $cookies, DashboardService) {
         var vm = this;
 
         /**
@@ -15,7 +15,14 @@
         };
 
         vm.logout = function () {
-            return DashboardService.logout();
+            DashboardService.logout();
+            $state.go('login');
+        };
+
+        vm.canShowEmployeesButton = function () {
+            var currentEmployee = $cookies.getObject('currentEmployee');
+
+            return currentEmployee.role.indexOf('ROLE_MANAGER') > -1;
         };
     });
 })();

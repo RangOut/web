@@ -16,23 +16,23 @@
                             <md-tab label='Gerente'>
                                 <md-content class='md-padding'>
                                     <div layout-gt-sm='row'>
-                                        <md-input-container class="md-block" flex-gt-sm>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='manager-name'>
                                                 Nome
                                             </label>
                                             <input required id='manager-name' name='managerName' type='text'
-                                                   ng-model="registerCtrl.establishment.manager.name">
+                                                   ng-model='registerCtrl.establishment.manager.name'>
                                             <div ng-messages='registerForm.managerName.$error'>
                                                 <div ng-message='required'>Informe seu nome.</div>
                                             </div>
                                         </md-input-container>
 
-                                        <md-input-container class="md-block" flex-gt-sm>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='manager-username'>
                                                 Nome de usuário
                                             </label>
                                             <input required id='manager-username' name='managerUsername' type='text'
-                                                   ng-model="registerCtrl.establishment.manager.username">
+                                                   ng-model='registerCtrl.establishment.manager.username'>
                                             <div ng-messages='registerForm.managerUsername.$error'>
                                                 <div ng-message='required'>Informe seu nome de usuário.</div>
                                             </div>
@@ -40,12 +40,12 @@
                                     </div>
 
                                     <div layout-gt-sm='row'>
-                                        <md-input-container class="md-block" flex-gt-sm>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='manager-email'>
                                                 Email
                                             </label>
                                             <input required id='manager-email' name='managerEmail' type='email'
-                                                   ng-model="registerCtrl.establishment.manager.email">
+                                                   ng-model='registerCtrl.establishment.manager.email'>
                                             <div ng-messages='registerForm.managerEmail.$error'>
                                                 <div ng-message='required'>Informe seu email.</div>
                                             </div>
@@ -68,24 +68,24 @@
                             <md-tab label='Estabelecimento'>
                                 <md-content class='md-padding'>
                                     <div layout-gt-sm='row'>
-                                        <md-input-container class="md-block" flex-gt-sm>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='establishment-name'>
                                                 Nome
                                             </label>
                                             <input required id='establishment-name' name='establishmentName' type='text'
-                                                   ng-model="registerCtrl.establishment.name">
+                                                   ng-model='registerCtrl.establishment.name'>
                                             <div ng-messages='registerForm.establishmentName.$error'>
                                                 <div ng-message='required'>Informe o nome do estabelecimento.</div>
                                             </div>
                                         </md-input-container>
 
-                                        <md-input-container class="md-block" flex-gt-sm>
+                                        <md-input-container class='md-block' flex-gt-sm>
                                             <label for='establishment-nickname'>
                                                 Nome de estabelecimento (login)
                                             </label>
                                             <input required id='establishment-nickname' name='establishmentNickname'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.nickname">
+                                                   ng-model='registerCtrl.establishment.nickname'>
                                             <div ng-messages='registerForm.establishmentNickname.$error'>
                                                 <div ng-message='required'>Informe o nome de estabelecimento (login).
                                                 </div>
@@ -100,7 +100,7 @@
                                             </label>
                                             <input required id='address-street' name='addressStreet'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.street">
+                                                   ng-model='registerCtrl.establishment.address.street'>
                                             <div ng-messages='registerForm.addressStreet.$error'>
                                                 <div ng-message='required'>Informe o nome da rua do estabelecimento.
                                                 </div>
@@ -113,7 +113,7 @@
                                             </label>
                                             <input required id='address-number' name='addressNumber'
                                                    type='number' min='0'
-                                                   ng-model="registerCtrl.establishment.address.number">
+                                                   ng-model='registerCtrl.establishment.address.number'>
                                             <div ng-messages='registerForm.addressNumber.$error'>
                                                 <div ng-message='required'>Informe o número da rua do estabelecimento.
                                                 </div>
@@ -130,7 +130,7 @@
                                             </label>
                                             <input required id='address-neighborhood' name='addressNeighborhood'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.neighborhood">
+                                                   ng-model='registerCtrl.establishment.address.neighborhood'>
                                             <div ng-messages='registerForm.addressNeighborhood.$error'>
                                                 <div ng-message='required'>Informe o nome do bairro do estabelecimento.
                                                 </div>
@@ -142,8 +142,8 @@
                                                 CEP
                                             </label>
                                             <input id='address-cep' name='addressCep'
-                                                   type='text' ng-pattern="/^[0-9]{8}$/" md-maxlength='8'
-                                                   ng-model="registerCtrl.establishment.address.cep">
+                                                   type='text' ng-pattern='/^[0-9]{8}$/' md-maxlength='8'
+                                                   ng-model='registerCtrl.establishment.address.cep'>
                                             <div ng-messages='registerForm.addressCep.$error'>
                                                 <div ng-message='pattern'>O cep informado não é válido.
                                                 </div>
@@ -160,7 +160,7 @@
                                             </label>
                                             <input id='address-complement' name='addressComplement'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.complement">
+                                                   ng-model='registerCtrl.establishment.address.complement'>
                                         </md-input-container>
 
                                         <md-input-container class='md-block' flex-gt-sm>
@@ -169,7 +169,7 @@
                                             </label>
                                             <input required id='address-city' name='addressCity'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.city">
+                                                   ng-model='registerCtrl.establishment.address.city'>
                                             <div ng-messages='registerForm.addressCity.$error'>
                                                 <div ng-message='required'>Informe o nome da cidade do estabelecimento.
                                                 </div>
@@ -184,7 +184,7 @@
                                             </label>
                                             <input required id='address-state' name='addressState'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.state">
+                                                   ng-model='registerCtrl.establishment.address.state'>
                                             <div ng-messages='registerForm.addressState.$error'>
                                                 <div ng-message='required'>Informe o nome do estado do estabelecimento.
                                                 </div>
@@ -197,7 +197,7 @@
                                             </label>
                                             <input required id='address-country' name='addressCountry'
                                                    type='text'
-                                                   ng-model="registerCtrl.establishment.address.country">
+                                                   ng-model='registerCtrl.establishment.address.country'>
                                             <div ng-messages='registerForm.addressCountry.$error'>
                                                 <div ng-message='required'>Informe o nome do país do estabelecimento.
                                                 </div>
@@ -211,9 +211,25 @@
                                                 Telefones (separados por vírgula)
                                             </label>
                                             <input required id='establishment-telephones' name='establishmentTelephones'
-                                                   type='text' ng-list ng-model="registerCtrl.establishment.telephones">
+                                                   type='text' ng-list ng-model='registerCtrl.establishment.telephones'>
                                             <div ng-messages='registerForm.establishmentTelephones.$error'>
                                                 <div ng-message='required'>Informe pelo menos um telefone.
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class='md-block' flex-gt-sm>
+                                            <label for='establishment-num-tables'>
+                                                Quantidade de mesas
+                                            </label>
+                                            <input required id='establishment-num-tables' name='establishmentNumTables'
+                                                   type='number' min='0'
+                                                   ng-model='registerCtrl.establishment.numTables'>
+                                            <div ng-messages='registerForm.establishmentNumTables.$error'>
+                                                <div ng-message='required'>Informe a quantidade de mesas do
+                                                    estabelecimento.
+                                                </div>
+                                                <div ng-message='min'>A quantidade de mesas deve ser maior do que zero.
                                                 </div>
                                             </div>
                                         </md-input-container>
@@ -231,7 +247,7 @@
                                                         Nome do item
                                                     </label>
                                                     <input required id='item-name' name='itemName'
-                                                           type='text' ng-model="item.name">
+                                                           type='text' ng-model='item.name'>
                                                     <div ng-messages='registerForm.itemName.$error'>
                                                         <div ng-message='required'>Informe o nome do item.
                                                         </div>
@@ -243,7 +259,7 @@
                                                         Preço
                                                     </label>
                                                     <input required id='item-price' name='itemPrice'
-                                                           type='text' ng-model="item.price" min='0' ui-money-mask>
+                                                           type='text' ng-model='item.price' min='0' ui-money-mask>
                                                     <div ng-messages='registerForm.itemPrice.$error'>
                                                         <div ng-message='required'>Informe o preço do item.
                                                         </div>
@@ -259,7 +275,7 @@
                                                         Descrição
                                                     </label>
                                                     <input id='item-description' name='itemDescription'
-                                                           type='text' ng-model="item.description">
+                                                           type='text' ng-model='item.description'>
                                                 </md-input-container>
 
                                                 <md-input-container flex='30' class='md-block' flex-gt-sm>
@@ -267,7 +283,7 @@
                                                         Categoria
                                                     </label>
                                                     <input required id='item-categoria' name='itemCategory'
-                                                           type='text' ng-model="item.category">
+                                                           type='text' ng-model='item.category'>
                                                     <div ng-messages='registerForm.itemCategory.$error'>
                                                         <div ng-message='required'>Informe a categoria do item.
                                                         </div>
@@ -281,7 +297,7 @@
                                                         Ingredientes (separados por vírgula)
                                                     </label>
                                                     <input id='item-ingredients' name='itemIngredients'
-                                                           type='text' ng-list ng-model="item.ingredients">
+                                                           type='text' ng-list ng-model='item.ingredients'>
                                                 </md-input-container>
                                             </div>
                                         </md-card-content>

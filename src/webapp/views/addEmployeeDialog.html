@@ -1,0 +1,67 @@
+<md-dialog aria-label='Funcionário'>
+    <md-toolbar>
+        <div class='md-toolbar-tools'>
+            <h2>Adicionar Funcionário</h2>
+
+            <span flex></span>
+
+            <md-button class='md-icon-button' ng-click='addEmployeeDialogCtrl.cancel()'>
+                <md-icon md-svg-src='/assets/img/ic_close_black_24px.svg' aria-label='Fechar'></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <form name='addEmployeeForm'>
+            <div class='md-dialog-content'>
+                <div layout-gt-sm='row'>
+                    <md-input-container class='md-block' flex-gt-sm>
+                        <label for='employee-name'>
+                            Nome do funcionário
+                        </label>
+                        <input required id='employee-name' name='employeeName'
+                               type='text' ng-model='addEmployeeDialogCtrl.employee.name'>
+                        <div ng-messages='addEmployeeForm.employeeName.$error'>
+                            <div ng-message='required'>Informe o nome do funcionário.
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class='md-block' flex-gt-sm>
+                        <label for='employee-username'>
+                            Nome de usuário
+                        </label>
+                        <input required id='employee-username' name='employeeUsername'
+                               type='text' ng-model='addEmployeeDialogCtrl.employee.username'>
+                        <div ng-messages='addEmployeeForm.employeeUsername.$error'>
+                            <div ng-message='required'>Informe o nome de usuário do funcionário.
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm='row'>
+                    <md-input-container class='md-block' flex-gt-sm>
+                        <label for='employee-password'>
+                            Senha (Rangout)
+                        </label>
+                        <input required id='employee-password' name='employeePassword' type='password'
+                               ng-model='addEmployeeDialogCtrl.password'>
+                        <div ng-messages='addEmployeeForm.employeePassword.$error'>
+                            <div ng-message='required'>Informe a senha da conta Rangout.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout='row' layout-align='end center'>
+        <md-button class='md-raised md-primary' data-ng-click='addEmployeeDialogCtrl.confirm()'>
+            Confirmar
+        </md-button>
+        <md-button class='md-raised md-warn' data-ng-click='addEmployeeDialogCtrl.cancel()'>
+            Cancelar
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
