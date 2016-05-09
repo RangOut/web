@@ -96,5 +96,19 @@
 
             return deferred.promise;
         };
+        
+        self.getOrders = function () {
+			var deferred = $q.defer();
+
+			$http.get('/rangout-server/api/establishment/order').then(
+				function (info) {
+					deferred.resolve(info);
+				}, function (error) {
+					deferred.reject(error);
+				}
+			);
+
+			return deferred.promise;
+		}
     });
 })();

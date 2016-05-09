@@ -1,2 +1,19 @@
 <md-content layout='row' layout-wrap layout-padding>
+	<md-card data-ng-repeat='order in dashboardMenuCtrl.orders'>
+        <md-card-content>
+            <p>Nome do usuário: {{order.user.name}}</p>
+            <p>Mesa: {{order.table.number}}</p>
+
+            <md-card ng-repeat='item in order.items'>
+				<md-card-content>
+					<p>Nome: {{item.item.name}}</p>
+					<p>Quantidade: {{item.amount}]</p>
+					<p>Categoria: {{item.item.category}}</p>
+					<p>Preço: {{item.item.price}}</p>
+				</md-card-content>
+            </md-card>
+
+            <p>Total: {{order.account}}</p>
+        </md-card-content>
+    </md-card>
 </md-content>
