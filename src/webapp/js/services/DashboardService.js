@@ -96,8 +96,5 @@
 
             return deferred.promise;
         };
-
-        self.getOrders = function () {
-        };
     });
 })();

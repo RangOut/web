@@ -3,10 +3,7 @@
 
     var rangoutDashboard = angular.module('rangoutDashboard');
 
-    rangoutDashboard.controller('DashboardOrdersController', function (DashboardService) {
+    rangoutDashboard.controller('DashboardOrdersController', function () {
         var vm = this;
-
-        (function main() {
-        })();
     });
 })();
