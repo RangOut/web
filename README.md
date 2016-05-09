@@ -1,6 +1,6 @@
 # Rangout
 
-This is the Rangout web application.
+This is the Rangout web application.  
 Rangout is a project for the Software Engineering course from Computer Science @ UFCG.
 
 To start the application, run:
